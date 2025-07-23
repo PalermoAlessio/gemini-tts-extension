@@ -1,0 +1,25 @@
+{
+  "name": "tts-chrome-extension",
+  "version": "0.1.0",
+  "description": "Minimal TTS Reader Chrome Extension",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0",
+    "@types/chrome": "^0.0.246",
+    "supertest": "^7.0.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/tests/**/*.test.js"
+    ],
+    "moduleNameMapper": {
+      "\\.(png|jpg|jpeg|gif|svg)$": "<rootDir>/__mocks__/fileMock.js"
+    },
+    "clearMocks": true,
+    "resetModules": true
+  }
+}

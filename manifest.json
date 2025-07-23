@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "Minimal TTS Reader",
+  "version": "0.2.0",
+  "description": "A minimal text-to-speech reader using Gemini 2.5 Flash TTS for selected text.",
+  "permissions": [
+    "activeTab",
+    "contextMenus",
+    "scripting",
+    "alarms",
+    "offscreen",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://generativelanguage.googleapis.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "commands": {
+    "read-text": {
+      "suggested_key": {
+        "default": "Alt+Shift+R",
+        "mac": "Alt+Shift+R"
+      },
+      "description": "Read selected text"
+    }
+  },
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [ "offscreen.html", "offscreen.js", "content.css" ],
+      "matches": [ "<all_urls>" ]
+    }
+  ]
+}
